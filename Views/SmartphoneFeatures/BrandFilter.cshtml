@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SmartphoneShop.Models.SmartphoneFeature>
+@{
+    ViewBag.Title = "BrandFilter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .jumbotron
+    {
+        background-color:pink;
+    }
+</style>
+<div class="jumbotron">
+    <h4 style="text-align:center">Brands</h4>
+    <br>
+    <br>
+    <table style="margin:auto">
+        <tr>
+        @foreach (var item in Model)
+        {
+                <td style="padding-right:10em">
+                    @using (Html.BeginForm("BrandBasedModels", "SmartphoneFeatures", FormMethod.Post))
+                    {
+                        <button type="submit" class="btn btn-danger" value="@item.Brand" name="brand">@item.Brand</button>
+
+                    }
+                </td>
+        }
+        </tr>
+    </table>
+</div>

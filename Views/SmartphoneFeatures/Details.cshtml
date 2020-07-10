@@ -1,0 +1,141 @@
+﻿@model SmartphoneShop.Models.SmartphoneFeature
+
+@{
+    ViewBag.Title = "Specifications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h4 style="text-align:center;color:darkblue">Full Specifications</h4>
+    <div class="jumbotron" style="justify-content:center;display:flex;background-color:greenyellow">
+        <div><img src="@Model.Image" height="300" width="300" style="border-radius:25px;border:2px solid red"/></div>
+        <hr />
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Rating)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Rating)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price) Rs
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ScreenSize)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ScreenSize) inch
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RAM)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RAM) GB
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InternalStorage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InternalStorage) GB
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FrontCamera)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FrontCamera) MP
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RearCamera)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RearCamera) MP
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OS)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OS)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sim)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sim)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sensor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sensor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BatteryCapacity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BatteryCapacity) mAh
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+     function myFunction()
+    {
+      alert("Order Placed Successfully !!! Your bill amount is Rs.@Model.Price.");
+    }
+</script>
+<p style="text-align:center">
+    <input type="submit" value="BUY NOW" class="btn btn-danger" onclick="javascript:myFunction()"/>
+    <br>
+    @Html.ActionLink("Back to Home", "Index")
+</p>

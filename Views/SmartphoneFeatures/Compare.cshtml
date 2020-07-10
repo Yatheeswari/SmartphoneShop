@@ -1,0 +1,41 @@
+﻿@model SmartphoneShop.Models.SmartphoneFeature
+
+@{
+    ViewBag.Title = "Comparison";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    td
+    {
+        padding:10px 10px 10px 10px;
+    }
+    .jumbotron
+    {
+        background-color:palevioletred;
+    }
+</style>
+<div class="jumbotron">
+    <h4 style="text-align:center">Compare</h4>
+    <table style="margin:auto">
+        @using (Html.BeginForm("Compare", "SmartphoneFeatures", FormMethod.Post))
+        {
+            <tr>
+                <td>
+                    @Html.DropDownList("mobile1", ViewBag.CompareList as SelectList, "--Mobile 1--", new { @class = "form-control", required="required" })
+                </td>
+                <td>
+                    @Html.DropDownList("mobile2", ViewBag.CompareList as SelectList, "--Mobile 2--", new { @class = "form-control", required = "required" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" class="btn btn-warning" value="Compare Battery Capacity and Price" name="compareType" />
+                </td>
+                <td>
+                    <input type="submit" class="btn btn-danger" value="Compare Internal Storage and RAM" name="compareType" />
+                </td>
+            </tr>
+        }
+    </table>
+   </div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SmartphoneShop.Models.SmartphoneFeature>
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="background-image:url(../Image/index.jpg)">
+<div class="jumbotron" style="justify-content:center;display:flex;background-color:aquamarine">
+    <h4 style="padding-right:2em;color:Highlight">Search by</h4>
+    <br>
+    <table>
+        <tr>
+            <td>
+                @using (Html.BeginForm("BrandFilter", "SmartphoneFeatures"))
+                {
+                    <button type="submit" class="btn btn-success">Brands</button>
+                }
+            </td>
+            <td>
+                @using (Html.BeginForm(FormMethod.Post))
+                {
+                    <input type="submit" class="btn btn-danger" value="Price - High to Low" formaction="@Url.Action("HighToLow","SmartphoneFeatures")" />
+                    <input type="submit" class="btn btn-info" value="Price - Low to High" formaction="@Url.Action("LowToHigh","SmartphoneFeatures")" />
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+<h2 style="text-align :center;color:crimson">Top rated mobiles</h2>
+<br>
+<div class="jumbotron" style="background-color:lightsalmon">
+    <table class="table">
+        <tr class="table-danger">
+            @foreach (var item in Model)
+            {
+                <td class="table-info">
+                    <img src="@item.Image" height="100" width="100" style="border-radius:25px;border:1px solid black"/>
+                    <br>
+                    <br>
+                    @Html.ActionLink(item.Brand + " " + item.Model, "Details", new { id = item.MobileId })
+                </td>
+
+            }
+        </tr>
+    </table>
+</div>
+</div>

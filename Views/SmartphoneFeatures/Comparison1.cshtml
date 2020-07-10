@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SmartphoneShop.Models.SmartphoneFeature>
+@{
+    ViewBag.Title = "ComparisonTable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
+        .jumbotron
+        {
+            background-color:khaki;
+        }
+        td,th
+        {
+            padding-right:50px;
+        }
+    </style>
+</head>
+    <div class="jumbotron">
+        <h4 style="text-align:center">Comparison of Battery Capacity and Price</h4>
+        <table border="1" style="margin:auto">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Brand) 
+                </th>
+
+                @foreach (var item in Model)
+                {
+                    <td>
+                        @item.Brand 
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model) 
+                </th>
+
+                @foreach (var item in Model)
+                {
+                    <td>
+                        @item.Model 
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BatteryCapacity) 
+                </th>
+
+
+                @foreach (var item in Model)
+                {
+                    <td>
+                        @item.BatteryCapacity mAh 
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price) 
+                </th>
+
+                @foreach (var item in Model)
+                {
+                    <td>
+                        @item.Price Rs 
+                    </td>
+                }
+            </tr>
+        </table>
+        <br>
+        @if(ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+                window.onload = function () {
+                    alert("@ViewBag.Message");
+                };
+            </script>
+        }
+        <br>
+        <p style="text-align:center">
+            @Html.ActionLink("Back to Home", "Index")
+        </p>
+    </div>

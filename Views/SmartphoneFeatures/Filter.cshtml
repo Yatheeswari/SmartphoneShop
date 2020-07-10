@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SmartphoneShop.Models.SmartphoneFeature>
+@{
+    ViewBag.Title = "List of Mobiles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 style="text-align:center;color:darkred">List of Smartphones</h4>
+<div class="jumbotron" style="justify-content:center;display:flex;background-color:cyan">
+    <table class="table">
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.Image" height="100" width="100" style="border-radius:25px;border:1px solid black"/>
+                    <br>
+                    @Html.ActionLink(item.Brand + " " + item.Model, "Details", new { id = item.MobileId })
+                </td>
+            </tr>
+        }
+
+    </table>
+  </div>
